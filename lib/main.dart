@@ -1,8 +1,8 @@
-import 'package:fad_task/Features/login/ui/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'Core/di/dependency_injection.dart';
+import 'package:fad_task/core/di/dependency_injection.dart';
+import 'package:fad_task/features/login/ui/screens/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

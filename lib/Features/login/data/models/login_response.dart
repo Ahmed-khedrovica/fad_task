@@ -11,8 +11,14 @@ class LoginResponse {
   final String lastName;
   final String gender;
   final String image;
+  @JsonKey(readValue: _readAccessToken)
   final String accessToken;
+  @JsonKey(defaultValue: '')
   final String refreshToken;
+
+  static Object? _readAccessToken(Map json, String key) {
+    return json['accessToken'] ?? json['token'] ?? '';
+  }
 
   const LoginResponse({
     required this.id,

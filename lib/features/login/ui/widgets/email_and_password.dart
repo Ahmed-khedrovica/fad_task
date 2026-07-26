@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../Core/helpers/spacing.dart';
-import '../../../../Core/widgets/app_text_form_field.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({
@@ -27,12 +27,24 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         AppTextFormField(
           controller: widget.usernameController,
           hintText: 'Username',
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return 'Please enter your username';
+            }
+            return null;
+          },
         ),
         verticalSpace(18),
         AppTextFormField(
           controller: widget.passwordController,
           hintText: 'Password',
           isObscureText: isObscureText,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your password';
+            }
+            return null;
+          },
           suffixIcon: IconButton(
             onPressed: () {
               setState(() {
